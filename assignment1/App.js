@@ -15,3 +15,12 @@ app.listen(PORT, () => {
     console.log(`Endpoints:`);
 });
 
+// GET products
+app.get('/products', (req, res) => {
+    getCount++;
+    console.log("> products GET: received request")
+    console.log(`Processed Request Count --> Get: ${getCount}, Post: ${postCount}`);
+    console.log("> products GET: sending response")
+    res.json(products);
+});
+
