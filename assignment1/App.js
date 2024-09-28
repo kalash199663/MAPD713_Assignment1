@@ -4,6 +4,8 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+
+// Data storage for products
 let products = [];
 
 let getCount = 0;
@@ -11,8 +13,8 @@ let postCount = 0;
 
 // Logging on startup
 app.listen(PORT, () => {
-    console.log('Server is listening at http://127.0.0.1:' + PORT)
-    console.log(`Endpoints:`);
+    console.log(`Server is listening at http://127.0.0.1:${PORT}`);
+    console.log(`Endpoints: http://127.0.0.1:${PORT}/products method: GET, POST, DELETE`);
 });
 
 // GET products
