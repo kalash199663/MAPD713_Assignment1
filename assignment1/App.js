@@ -24,3 +24,20 @@ app.get('/products', (req, res) => {
     res.json(products);
 });
 
+// POST products
+app.post('/products', (req, res) => {
+    postCount++;
+    console.log(`> products POST: received re quest`);
+    const newProduct = req.body;
+
+    if (products.some(product => product.productId === newProduct.productId)) {
+        return res.status(400).json({ error: 'Product ID must be unique.' });
+    }
+
+    products.push(newProduct);
+    console.log(`< products POST: sending response`);
+    console.log(`Processed Request Count --> Get: ${getCount}, Post: ${postCount}`);
+    res.status(201).json(newProduct);
+});
+
+
