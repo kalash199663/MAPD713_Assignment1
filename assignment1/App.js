@@ -40,4 +40,12 @@ app.post('/products', (req, res) => {
     res.status(201).json(newProduct);
 });
 
+// DELETE products
+app.delete('/products', (req, res) => {
+    console.log(`> products DELETE: received request`);
+    products = [];
+    console.log(`< products DELETE: sending response`);
+    res.status(204).send();
+});
+
 
